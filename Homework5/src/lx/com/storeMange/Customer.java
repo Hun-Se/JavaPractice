@@ -7,7 +7,8 @@ public class Customer {
 	String name;
 	int age;
 	String phone;
-	ArrayList<String> productList;
+	ArrayList<Product> customerProducts = new ArrayList();
+	
 	static int totalBuyFee;
 	
 	public void setName(String name) {
@@ -30,8 +31,12 @@ public class Customer {
 		this.phone = phone;
 	}
 	
-	public String getPhohne() {
+	public String getPhone() {
 		return phone;
+	}
+	
+	public void setCustoemrProduct(Product product) {
+		customerProducts.add(product);
 	}
 
 }
