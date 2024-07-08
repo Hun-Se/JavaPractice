@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import lx.com.storeMange.Customer;
 import lx.com.storeMange.Product;
@@ -36,12 +37,24 @@ public class Test {
 		store1.pay(customer1, product1);
 		store1.pay(customer1, product2);
 		store1.pay(customer2, product1);
+		store1.calculateMoney();
+		
+		HashMap<String, ArrayList<Product>> DayToSoldProductList = store1.getDayToSoldProductList();
+		HashMap<String, Integer> dayToTotal = store1.getDayToTotal();
+		
+		for (String key : DayToSoldProductList.keySet()) {
+			System.out.println(key);
+			for (Product product : DayToSoldProductList.get(key)) {
+				System.out.println(product.getName() + ": " + product.getPrice());
+			}
+			System.out.println("총합계: " + dayToTotal.get(key));;
+		}
 		
 //		Util.printTotalFee(customer1);
 //		Util.printTotalFee(customer2);
 //		Util.printListSize(store1);
 		
-		Util.makeExample();
+//		Util.makeExample();
 
 	}
 

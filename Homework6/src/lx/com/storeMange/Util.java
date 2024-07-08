@@ -3,8 +3,9 @@ package lx.com.storeMange;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.io.DataInputStream;
+import java.util.HashMap;
 import java.text.SimpleDateFormat;
+
 
 public class Util {
 	
@@ -26,15 +27,21 @@ public class Util {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		
-		
-		// 이번달 날짜 생성하기
-		for (int i = 0; 1 < calendar.DATE; i++) {
-			System.out.println(i);
-			SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
-			calendar.add(calendar.DATE, -1);
-			String dateStr = format.format(calendar.getTime());
-			System.out.println(dateStr);
-		}		
+		int today = calendar.get(Calendar.DATE);
+		for (int i = today; i > 0; i--) {
+		    SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
+		    String dateStr = format.format(calendar.getTime());
+		    System.out.println(dateStr);
+		    
+		    calendar.add(Calendar.DATE, -1);
+		}
 	
-	} 
+	}
+	
+	public static String makeToday() {
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
+		String dateStr = format.format(date);
+		return dateStr;
+	}
 }
