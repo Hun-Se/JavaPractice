@@ -67,8 +67,6 @@ public class Store {
 		// 구매할 때 날짜: 물건들이 쌓여야함
 		String today = Util.makeToday();
 		this.setDayToSoldProductList(today, product);
-		
-
 	}
 	
 	public void  calculateMoney() {
